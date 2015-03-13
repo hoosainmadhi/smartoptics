@@ -3,7 +3,7 @@ Smartoptics::Application.routes.draw do
   #resources :patients
 
 
-
+   root 'patients#index'
   
    resources :patients do
       resources :consults
