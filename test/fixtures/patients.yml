@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_number: MyString
+  patient_name: MyString
+  medical_aid: MyString
+  medical_aid_number: MyString
+  principal_member: MyString
+  postal_address: MyString
+  city: MyString
+  postal_code: MyString
+  tel_no: MyString
+
+two:
+  patient_number: MyString
+  patient_name: MyString
+  medical_aid: MyString
+  medical_aid_number: MyString
+  principal_member: MyString
+  postal_address: MyString
+  city: MyString
+  postal_code: MyString
+  tel_no: MyString

@@ -1,0 +1,9 @@
+<%= link_to 'All Patients', patients_path %><p><%= link_to 'New Patient', new_patient_path %>
+<%=render partial: "/patients/patient_details", locals: {patient: @patient} %>
+
+<%=link_to 'Edit Patient Details', edit_patient_path(@patient.id) %>
+
+<br>
+<br>
+
+<%=render partial: "/consults/consult_details", locals: {patient_consults: @patient.consults , patient:@patient} %>

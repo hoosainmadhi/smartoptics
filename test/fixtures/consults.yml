@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  service_date: 2015-03-03 10:15:28
+  reservation_number: MyString
+
+two:
+  patient_id: 1
+  service_date: 2015-03-03 10:15:28
+  reservation_number: MyString

@@ -1,0 +1,19 @@
+<h1>Add/Edit Consult</h1>
+
+<%= form_for([@patient,@consult]) do |consult_form| %>
+  
+   <table>
+   	<tr>
+   		<td>
+   			<%= consult_form.label :service_date %>   <%= consult_form.datetime_select :service_date %><br>
+   			<%= consult_form.label :reservation_number %>   <%= consult_form.text_field :reservation_number %>
+   		</td>
+   		
+   	</tr>
+   </table>
+     
+  <%= consult_form.submit "Submit" %>
+  
+
+   
+<% end %>
