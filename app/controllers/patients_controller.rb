@@ -13,7 +13,7 @@ class PatientsController < ApplicationController
   
   def show
     @patient = Patient.find(params[:id])
-    @consult = Consult.find_by_patient_id(params[:id])
+    @consults = Consult.find_by_patient_id(params[:id])
   end
   
   def edit

@@ -2,6 +2,8 @@
 
 
 
-<%=render partial: "/patients/patient_details", locals: {patient: @patient} %>
+<%#=render partial: "/patients/patient_details", locals: {patient: @patient} %>
+
+ <%= render @patient %>
 
 <%=render partial: "form_consult" %>

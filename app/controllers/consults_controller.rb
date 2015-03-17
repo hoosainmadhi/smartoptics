@@ -23,6 +23,7 @@ class ConsultsController < ApplicationController
     @patient = Patient.find(params[:patient_id])
     @consult = @patient.consults.build(params[:consult])
     @patient.save
+    flash[:success] = "Great! Patient Details has been created!"
     redirect_to "/patients/#{@patient.id}"
   end
   

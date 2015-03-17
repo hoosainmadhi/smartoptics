@@ -1,0 +1,7 @@
+<tr>
+<td><%= "#{consult.service_date}"%></td> 
+<td><%= "#{consult.reservation_number}"%> </td>
+<td><%= link_to 'Edit', edit_patient_consult_path(consult.patient_id,consult.id) %> </td>
+<td> <%= link_to 'Delete', patient_consult_path(consult.patient_id,consult.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+

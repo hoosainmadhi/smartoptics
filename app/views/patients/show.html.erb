@@ -1,9 +1,29 @@
 <%= link_to 'All Patients', patients_path %><p><%= link_to 'New Patient', new_patient_path %>
-<%=render partial: "/patients/patient_details", locals: {patient: @patient} %>
 
-<%=link_to 'Edit Patient Details', edit_patient_path(@patient.id) %>
+<table>
+	  <tr><th>#</th>
+	  <th>Name</th>
+	  <th>Show</th>
+	  <th>Edit</th>
+	  <th>Delete</th></tr>
+      <%= render @patient %>
+      
+</table>
 
 <br>
 <br>
 
-<%=render partial: "/consults/consult_details", locals: {patient_consults: @patient.consults , patient:@patient} %>
+
+
+<h1>Consult History <%=link_to 'NewConsult', new_patient_consult_path(@patient.id) %></h1>
+<table>
+  <tr>
+     <th>Service Date</th>
+    <th>Reservation#</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+<%=render @patient.consults %> 
+
+</table>
+
