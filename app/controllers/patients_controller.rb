@@ -1,12 +1,12 @@
 class PatientsController < ApplicationController
   def new
     @patient=Patient.new
-#    @consult=Consult.new
+    #@consult=@patient.consults.new
   end
   
   def create 
     @patient = Patient.new(params[:patient])
- #   @consult = @patient.consults.build(params[:consult])
+    #@consult = @patient.consults.build(params[:consults_attributes])
     @patient.save
     redirect_to "/patients/#{@patient.id}"
   end

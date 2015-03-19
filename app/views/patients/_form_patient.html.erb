@@ -8,11 +8,11 @@
    	 
    	  <br>
     
-        <%= patient_form.fields_for @patient.consults.build do |consult_form| %>
-         <%= consult_form.label :service_date %>  <%= consult_form.text_field :service_date %>
-         <%= consult_form.label :reservation_number %>  <%= consult_form.text_field :reservation_number %>
+        <%= patient_form.fields_for :consults , @patient.consults.build do |consult_form| %>
+          Service Date  : <%= consult_form.datetime_select :service_date %> <br>
+    	  Reservation # : <%= consult_form.text_field :reservation_number %>
+
         <% end %>
         <br>
       <%= patient_form.submit %>
     <% end %>
-
