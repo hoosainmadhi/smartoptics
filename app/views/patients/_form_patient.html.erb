@@ -1,33 +1,20 @@
 <h1>Add/Edit Patient</h1>
 
-<%= form_for @patient do |patient_form| %>
-  <% if @patient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
-
-      <ul>
-      <% @patient.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-   <table>
-   	<tr>
-   		<td>
-   			<%= patient_form.label :patient_number %>   <%= patient_form.text_field :patient_number %>
-   		</td>
-   		<td>
-   			<%= patient_form.label :patient_name %>   <%= patient_form.text_field :patient_name %>
-   		</td>
-   	</tr>
-   </table>
-  
-  
+   <%= form_for @patient do |patient_form| %>
+      
     
-  <%= patient_form.submit "Submit" %>
-  
+   	<%= patient_form.label :patient_number %>   <%= patient_form.text_field :patient_number %>
+   	<%= patient_form.label :patient_name %>   <%= patient_form.text_field :patient_name %>
+   	 
+   	  <br>
+    
+        <%= patient_form.fields_for :consults , @patient.consults.build do |consult_form| %>
+          Service Date  : <%= consult_form.datetime_select :service_date %> <br>
+    	  Reservation # : <%= consult_form.text_field :reservation_number %>
 
-   
-<% end %>
+        <% end %>
+        <br>
+        
+       Deeply Nested
+      <%= patient_form.submit %>
+    <% end %>
