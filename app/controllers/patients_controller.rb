@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
   def new
     @patient=Patient.new
+     1.times { @patient.consults.build }
 #    @consult=Consult.new
   end
   

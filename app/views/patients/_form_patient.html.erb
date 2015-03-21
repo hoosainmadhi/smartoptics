@@ -1,10 +1,18 @@
 <h1>Add/Edit Patient</h1>
 
-<% form_for @patient do |f| %>
+<%= form_for @patient do |f| %>
   
   <p>
-    <%= f.label :patient_name %><%= f.text_field :patient_name %>
+    <%= f.label :patient_number %><%= f.text_field :patient_number %><%= f.label :patient_name %><%= f.text_field :patient_name %>
   </p>
+  
+  <% f.fields_for :consults do |builder| %>
+  <p>
+    <%= builder.label :service_date, "Service Date" %><%= builder.datetime_select :service_date %> 
+    
+  </p>
+  <% end %>
   
   <p><%= f.submit "Submit" %></p>	
 <% end %>
+
