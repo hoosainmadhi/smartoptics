@@ -6,9 +6,10 @@
     <%= f.label :patient_number %><%= f.text_field :patient_number %><%= f.label :patient_name %><%= f.text_field :patient_name %>
   </p>
   
-  <% f.fields_for :consults do |builder| %>
+  <%= f.fields_for :consults, @patient.consults.build do |builder| %>
   <p>
-    <%= builder.label :service_date, "Service Date" %><%= builder.datetime_select :service_date %> 
+    <%= builder.label :service_date, "Service Date" %><%= builder.datetime_select :service_date %> <br>
+    <%= builder.label :reservation_number, "Service Date" %><%= builder.text_field :reservation_number %> 
     
   </p>
   <% end %>
