@@ -1,0 +1,10 @@
+<p>
+	
+	 Service Date  : <%= patient_form.datetime_select :service_date %> <br>
+     Reservation # : <%= patient_form.text_field :reservation_number %>	
+  
+</p>
+
+	<%= patient_form.fields_for :dispenses do |dispense_form| %>
+  	<%= render 'dispense_fields', :patient_form => dispense_form %>
+  	<% end %>

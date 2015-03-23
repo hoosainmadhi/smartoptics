@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150303081528) do
+ActiveRecord::Schema.define(:version => 20150321161022) do
 
   create_table "consults", :force => true do |t|
     t.integer  "patient_id"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20150303081528) do
     t.string   "reservation_number"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "dispenses", :force => true do |t|
+    t.integer  "consult_id"
+    t.string   "dispense_item"
+    t.string   "dispense_code"
+    t.decimal  "price"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "patients", :force => true do |t|
@@ -33,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20150303081528) do
     t.string   "tel_no"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "scripts", :force => true do |t|
+    t.integer  "consult_id"
+    t.string   "right_eye_script"
+    t.string   "left_eye_script"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

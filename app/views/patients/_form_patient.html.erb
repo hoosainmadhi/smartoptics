@@ -8,13 +8,13 @@
    	 
    	  <br>
     
-        <%= patient_form.fields_for :consults , @patient.consults.build do |consult_form| %>
-          Service Date  : <%= consult_form.datetime_select :service_date %> <br>
-    	  Reservation # : <%= consult_form.text_field :reservation_number %>
-
-        <% end %>
+        
+    	<%= patient_form.fields_for :consults do |consult_form| %>
+    		<%= render 'consult_fields', :patient_form => consult_form %>
+  		<% end %>
+    	
         <br>
         
-        SSSS
+        
       <%= patient_form.submit %>
     <% end %>

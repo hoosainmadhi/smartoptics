@@ -1,7 +1,14 @@
 class PatientsController < ApplicationController
   def new
     @patient=Patient.new
-    #@consult=@patient.consults.new
+    1.times do
+      consult = @patient.consults.build
+      4.times { consult.dispenses.build }
+    end
+    
+    #3.times do
+    #question = @survey.questions.build
+    #4.times { question.answers.build }
   end
   
   def create 
