@@ -1,29 +1,33 @@
-<%= link_to 'All Patients', patients_path %><p><%= link_to 'New Patient', new_patient_path %>
-
-<table>
-	  <tr><th>#</th>
-	  <th>Name</th>
-	  <th>Show</th>
-	  <th>Edit</th>
-	  <th>Delete</th></tr>
-      <%= render @patient %>
-      
-</table>
-
-<br>
-<br>
+<%= link_to 'All Patients', patients_path %> |
+<%= link_to 'New Patient', new_patient_path %>
 
 
+<br><br>
 
-<h1>Consult History <%=link_to 'NewConsult', new_patient_consult_path(@patient.id) %></h1>
-<table>
-  <tr>
-     <th>Service Date</th>
-    <th>Reservation#</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
-<%=render @patient.consults %> 
 
-</table>
+<h1>Patient Details</h1>
+<%= render  @patient %>
 
+<h2>Consult History </h2>
+<%#=render @patient.consults %> 
+
+ 	
+<ol>
+  <% for consult in @patient.consults %>
+  <li><%= h consult.service_date %> <%= h consult.reservation_number %></li>
+  <ul>
+    <% for dispense in consult.dispenses %>
+      <li>
+      	  <%=  dispense.dispense_code %>
+      	  <%=  dispense.dispense_item %>
+      	  <%=  dispense.price %>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+</ol> 
+ 
+
+
+
+ 

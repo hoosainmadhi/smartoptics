@@ -3,7 +3,6 @@ class ConsultsController < ApplicationController
   
   def new
     @patient = Patient.find(params[:patient_id])
-    @consult = Consult.new
   end
   
   def destroy
@@ -16,7 +15,7 @@ class ConsultsController < ApplicationController
   
   def show
     @patient = Patient.find(params[:id])
-    @consult = Consult.find_by_patient_id(params[:id])
+    #@consult = Consult.find_by_patient_id(params[:id])
   end
   
   def create
@@ -30,6 +29,8 @@ class ConsultsController < ApplicationController
   def edit
     @patient = Patient.find(params[:patient_id])
     @consult = @patient.consults.find(params[:id])
+    @dispense = @consult.dispenses.find_by_consult_id(params[:id])
+    
   end
   
   def update

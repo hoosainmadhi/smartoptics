@@ -6,7 +6,7 @@
 </p>
 
 	<%= patient_form.fields_for :dispenses do |dispense_form| %>
-  	<%= render 'dispense_fields', :patient_form => dispense_form %>
+  	<%= render '/patients/dispense_fields', :patient_form => dispense_form %>
   	<% end %>
   	<p><%= patient_form.link_to_add "Add a Dispense Item", :dispenses %></p>
   	
