@@ -1,0 +1,21 @@
+<h1>Add/Edt Patient</h1>
+
+   <%= nested_form_for @patient do |patient_form| %>
+      
+    
+   	<%= patient_form.label :patient_number %>   <%= patient_form.text_field :patient_number %>
+   	<%= patient_form.label :patient_name %>   <%= patient_form.text_field :patient_name %>
+   	 
+   	  <br>
+
+    <p><%= patient_form.link_to_add "Add a Consult", :consults %></p>
+        
+    	<%= patient_form.fields_for :consults do |consult_form| %>
+    		<%= render '/patients/consult_fields', :patient_form => consult_form %>
+  		<% end %>
+    	
+        <br>
+        
+        
+      <%= patient_form.submit %>
+    <% end %>

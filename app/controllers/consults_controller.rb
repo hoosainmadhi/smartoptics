@@ -3,6 +3,10 @@ class ConsultsController < ApplicationController
   
   def new
     @patient = Patient.find(params[:patient_id])
+    @consult = Consult.new
+  
+
+    
   end
   
   def destroy
