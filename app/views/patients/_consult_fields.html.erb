@@ -4,7 +4,7 @@
      Reservation # : <%= patient_form.text_field :reservation_number %>	
   
 </p>
-
+<hr>
 	<%= patient_form.fields_for :dispenses do |dispense_form| %>
   	<%= render '/patients/dispense_fields', :patient_form => dispense_form %>
   	<% end %>

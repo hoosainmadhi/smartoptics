@@ -1,11 +1,24 @@
+<table>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+	
+	<td>
+		<dt><%= "#{patient.patient_number}" %></dt> 
+	</td>
+	<td class="list_description">
+		<dl>
+			<dd><%= "#{patient.patient_name}"%> </dd>
+			<dd><%= "#{patient.medical_aid}"%> </dd>
+		</dl>
+	</td>
 
-<p>
-<%= "#{patient.patient_number}"%>
-<%= "#{patient.patient_name}"%>
+	<td class="list_actions">
+		<%= link_to 'New Consult', new_patient_consult_path(patient.id) %><br/>
+		<%= link_to 'Show', patient_path(patient) %><br/>
+		<%=link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</td>
 
-<%= link_to 'show', patient_path(patient) %> |
-<%=link_to 'New Consult', new_patient_consult_path(patient.id) %> |
-<%= link_to 'Edit', edit_patient_path(patient) %> |
-<%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %>
+</tr>
 
-</p>
+</table>
+
+<br>
