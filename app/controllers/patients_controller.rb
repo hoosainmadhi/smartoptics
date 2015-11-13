@@ -3,7 +3,7 @@ class PatientsController < ApplicationController
     @patient=Patient.new
     1.times do
       consult = @patient.consults.build
-      4.times { consult.dispenses.build }
+      2.times { consult.dispenses.build }
     end
     
     #3.times do
