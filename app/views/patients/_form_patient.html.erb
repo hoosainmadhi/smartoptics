@@ -2,14 +2,48 @@
 
    <%= nested_form_for @patient do |patient_form| %>
       
-    
-   	<%= patient_form.label :patient_number %>   <%= patient_form.text_field :patient_number %>
-   	<%= patient_form.label :patient_name %>   <%= patient_form.text_field :patient_name %>
-   	<%= patient_form.label :medical_aid %>   <%= patient_form.text_field :medical_aid %>
-   	<%= patient_form.label :medical_aid_number %>   <%= patient_form.text_field :medical_aid_number %>
-   	<%= patient_form.label :principal_member %>   <%= patient_form.text_field :principal_member %>
+    <table>
+    <tr>
+    	<td><%= patient_form.label :patient_number %>   <%= patient_form.text_field :patient_number %></td>
+   		<td><%= patient_form.label :patient_name %>   <%= patient_form.text_field :patient_name %></td>
+   		</td>
+   	</tr>
+   	<tr>	
+   		
+   		<td><%= patient_form.label :medical_aid %>   <%= patient_form.text_field :medical_aid %></td>
+   		<td><%= patient_form.label :medical_aid_number %>   <%= patient_form.text_field :medical_aid_number %></td>
+   		
+   	</tr>
+   	<tr>
+   		<td><%= patient_form.label :principal_member %>   <%= patient_form.text_field :principal_member %></td>
+   	</tr>
+   	</table>
    	  <br>
       <hr>
+      
+      
+    <h2>Consult History </h2>
+<%#=render @patient.consults %> 
+
+ 	
+<ol>
+  <% for consult in @patient.consults %>
+  <li><%= h consult.service_date %> <%= h consult.reservation_number %></li>
+  <ul>
+    <% for dispense in consult.dispenses %>
+      <li>
+      	  <%=  dispense.dispense_code %>
+      	  <%=  dispense.dispense_item %>
+      	  <%=  dispense.price %>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+</ol> 
+   
+    
+    
+      
     <p><%= patient_form.link_to_add "Add a Consult", :consults %></p>
         
     	<%= patient_form.fields_for :consults do |consult_form| %>

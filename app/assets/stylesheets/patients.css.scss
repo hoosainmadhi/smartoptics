@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*
+
+*/
+
+
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* START_HIGHLIGHT */
+
 table {
     border-collapse: collapse;
 }
@@ -18,13 +27,7 @@ th {
 i75 {
   text-indent: 75px
 }
-*/
 
-
-// Place all the styles related to the Products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-/* START_HIGHLIGHT */
 .patients {
   table {
     border-collapse: collapse;
@@ -41,7 +44,7 @@ i75 {
   }
 
   .list_description {
-    width: 60%;
+    #width: 60%;
 
     dl {
       margin: 0;
@@ -59,7 +62,7 @@ i75 {
   }
 
   .list_actions {
-    width: 40%;
+    #width: 40%;
     font-size:    x-small;
     text-align:   right;
     padding-left: 1em;

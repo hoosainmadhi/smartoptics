@@ -1,25 +1,28 @@
 <table>
-<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+	<tr>
+		
+		<th>	<%= "Patient#" %> </th> 
+		<th>	<%= "Patient Name" %> </th>
+		<th>    <%= "Medical Aid" %>      </th>
+		<th>    <%= "Medical Aid Number" %>      </th>
+		<th>    <%= "Principal Member" %>      </th>
+		<th>    <%= "Actions" %>      </th>
+	</tr>
 	
-	<td>
-		<dt><%= "#{patient.patient_number}" %></dt> 
-	</td>
-	<td class="list_description">
-		<dl>
-			<dd><%= "#{patient.patient_name}"%> </dd>
-			<dd><%= "#{patient.medical_aid}"%> </dd>
-			<dd><%= "#{patient.principal_member}"%> </dd>
-		</dl>
-	</td>
-
-	<td class="list_actions">
+	<tr>
+		<td>	<%= "#{patient.patient_number}" %> </td> 
+		<td>	<%= "#{patient.patient_name}" %> </td>
+		<td> 	<%= "#{patient.medical_aid}" %>      </td>
+		<td> 	<%= "#{patient.medical_aid_number}" %>      </td>
+		<td> 	<%= "#{patient.principal_member}" %>      </td>
+		<td class="list_actions">
 		<%= link_to 'New Consult', new_patient_consult_path(patient.id) %><br/>
+		<%= link_to 'Edit', edit_patient_path(patient.id) %><br/>
 		<%= link_to 'Show', patient_path(patient) %><br/>
 		<%=link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %>
-	</td>
+	   </td>
 
-</tr>
-
-</table>
-
+	</tr>	
+</table>	
+	
 <br>

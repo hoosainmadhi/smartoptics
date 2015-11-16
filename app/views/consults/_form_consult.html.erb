@@ -1,19 +1,39 @@
-<h1>Add/Edit Consult</h1>
+<h2>Consult History </h2>
+<%#=render @patient.consults %> 
 
-<%= form_for([@patient,@consult]) do |consult_form| %>
+ 	
+<ol>
+  <% for consult in @patient.consults %>
+  <li><%= h consult.service_date %> <%= h consult.reservation_number %></li>
+  <ul>
+    <% for dispense in consult.dispenses %>
+      <li>
+      	  <%=  dispense.dispense_code %>
+      	  <%=  dispense.dispense_item %>
+      	  <%=  dispense.price %>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+</ol> 
+
+<h1>Add/Edit Consult</h1>
+<%= nested_form_for @patient do |patient_form| %>
   
-   <table>
-   	<tr>
-   		<td>
-   			<%= consult_form.label :service_date %>   <%= consult_form.datetime_select :service_date %><br>
-   			<%= consult_form.label :reservation_number %>   <%= consult_form.text_field :reservation_number %>
-   		</td>
-   		
-   	</tr>
-   </table>
+         
+    <p><%#= patient_form.link_to_add "Add a Consult", :consults %></p>
+        
+    	<%= patient_form.fields_for :consults do |consult_form| %>
+    		<%= render '/patients/consult_fields', :patient_form => consult_form %>
+  		<% end %>
+    	
+        <br>
+     <hr>   
+        
+   
+   
      
-     
-  <%= consult_form.submit "Submit" %>
+  <%= patient_form.submit "Submit" %>
   
 
    
